@@ -48,7 +48,7 @@ Route::get('/logout', function () {
     if (session()->has('user')) {
         session()->pull('user');
     }
-    return redirect('register');
+    return redirect('/login');
 });
 
 //profile

@@ -14,6 +14,10 @@
 <input type="text" name="password" placeholder="Password" > <br> <br>
 <button type="submit">Submit</button>
 
+</br>
+<a href="/">home</a>
+
+
 @isset($error)
     <div style="color:red">
             {{ $error }}
