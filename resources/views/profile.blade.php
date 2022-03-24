@@ -9,6 +9,8 @@
 <body>
 <hl>Profile Page</hi>
 <h2>Welcome {{session('user')}}</h2>
+<a href="/categories">All Categories</a>
+
 <a href="/logout">logout</a>
 
 </body>

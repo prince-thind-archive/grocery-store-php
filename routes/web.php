@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,3 +56,7 @@ Route::get('/logout', function () {
 Route::get('profile', function () {
     return view('profile');
 });
+
+//categories
+Route::get('/categories', [CategoryController::class, "getCategories"]);
+
