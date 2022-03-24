@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     public function register(Request $req){
+
+
         $username = $req->input('username');
         $password = $req->input('password');
         
@@ -17,6 +19,7 @@ class RegisterController extends Controller
         };
 
         $this->insert($username,$password);
+        $req->session()->put('user', $username);
 
         return redirect('/profile');
 
