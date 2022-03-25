@@ -9,23 +9,39 @@ class CategoryController extends Controller
 {
     public function getCategories(Request $req)
     {
-        $categories = Category::all();
+        $user=session('user');
+        $categories = Category::all()->where('user',$user);
         return view('categories', ['categories' => $categories]);
 
     }
 
     public function createCategory_get(Request $req)
     {
-        return 'create category get';
+        return view('category-form');
     }
 
     public function createCategory_post(Request $req)
     {
-        return 'create category post';
+        $user=session('user');
+        $name=$req->input('name');
+        $description=$req->input('description');
+        $id=uniqid();
+
+        $category=new Category;
+        $category->id=$id;
+        $category->name=$name;
+        $category->description=$description;
+        $category->user=$user;
+
+        $category->save();
+
+        return redirect('/categories');
+
     }
+    
     public function getCategory(Request $req)
     {
-        $id=$req->input('id');
+        $id = $req->input('id');
         return "get $id";
     }
     public function updateCategory_get(Request $req)
