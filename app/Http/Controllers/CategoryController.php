@@ -42,7 +42,12 @@ class CategoryController extends Controller
     public function getCategory(Request $req)
     {
         $id = $req->input('id');
-        return "get $id";
+        $user=session('user');
+        $category = Category::all()->where('user',$user)->where('id',$id)->first();
+        if(is_null($category)){
+            return view('error404');
+        }
+        return view('category',['category'=>$category]);
     }
     public function updateCategory_get(Request $req)
     {
