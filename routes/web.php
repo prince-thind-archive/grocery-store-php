@@ -5,17 +5,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
- */
-
 //root
 Route::get('/', function () {
     if (session()->has('user')) {
@@ -57,6 +46,22 @@ Route::get('profile', function () {
     return view('profile');
 });
 
-//categories
+//categories 
 Route::get('/categories', [CategoryController::class, "getCategories"]);
+
+//category C
+Route::get('/category/create', [CategoryController::class, "createCategory_get"]);
+Route::post('/category/create', [CategoryController::class, "createCategory_post"]);
+
+//category R
+Route::get('/category', [CategoryController::class, "getCategory"]);
+
+//category U
+Route::get('/category/update', [CategoryController::class, "updateCategory_get"]);
+Route::post('/category/update', [CategoryController::class, "updateCategory_post"]);
+
+//category D
+Route::get('/category/delete', [CategoryController::class, "deleteCategory_get"]);
+Route::delete('/category/delete', [CategoryController::class, "deleteCategory_delete"]);
+
 
