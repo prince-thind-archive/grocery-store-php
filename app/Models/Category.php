@@ -9,5 +9,7 @@ class Category extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $casts = ['id' => 'string'];
+
 
 }

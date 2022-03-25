@@ -9,6 +9,12 @@
 {{$category->description}}
 
 </p>
-<form method="POST">
+<form action="/category/delete" method="POST">
+    @csrf
+    <input type="hidden" name="id" value="{{$category->id}}">
+    <input type="submit" value="Delete">
+</form>
+
+<a href="/category/update?id={{$category->id}}">Update</a>
 
 @stop

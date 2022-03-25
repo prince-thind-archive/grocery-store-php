@@ -9,8 +9,8 @@ class CategoryController extends Controller
 {
     public function getCategories(Request $req)
     {
-        $user=session('user');
-        $categories = Category::all()->where('user',$user);
+        $user = session('user');
+        $categories = Category::all()->where('user', $user);
         return view('categories', ['categories' => $categories]);
 
     }
@@ -22,47 +22,63 @@ class CategoryController extends Controller
 
     public function createCategory_post(Request $req)
     {
-        $user=session('user');
-        $name=$req->input('name');
-        $description=$req->input('description');
-        $id=uniqid();
+        $user = session('user');
+        $name = $req->input('name');
+        $description = $req->input('description');
+        $id = uniqid();
 
-        $category=new Category;
-        $category->id=$id;
-        $category->name=$name;
-        $category->description=$description;
-        $category->user=$user;
+        $category = new Category;
+        $category->id = $id;
+        $category->name = $name;
+        $category->description = $description;
+        $category->user = $user;
 
         $category->save();
 
-        return redirect('/categories');
+        return redirect("/category?id=$id");
 
     }
-    
+
     public function getCategory(Request $req)
     {
         $id = $req->input('id');
-        $user=session('user');
-        $category = Category::all()->where('user',$user)->where('id',$id)->first();
-        if(is_null($category)){
+        $user = session('user');
+        $category = Category::all()->where('user', $user)->where('id', $id)->first();
+        if (is_null($category)) {
             return view('error404');
         }
-        return view('category',['category'=>$category]);
+        return view('category', ['category' => $category]);
     }
     public function updateCategory_get(Request $req)
     {
-        return 'update category get';
+
+        $id = $req->input('id');
+        $category = Category::all()->where('id', $id)->first();
+        return view('category-form', ['category' => $category]);
     }
     public function updateCategory_post(Request $req)
     {
-        return 'update category post';
+        $name = $req->input('name');
+        $description = $req->input('description');
+        $id = $req->input('id');
+
+        $category = Category::all()->where('id', $id)->first();
+        $category->name = $name;
+        $category->description = $description;
+        $category->save();
+
+        return redirect("/category?id=$id");
+
     }
-    public function deleteCategory_get(Request $req)
+    public function deleteCategory_post(Request $req)
     {
-        return 'delete category get';
-    }
-    public function createCategory_delete(Request $req)
-    {
-        return 'delete category';
+        $id = $req->input('id');
+        $user = session('user');
+
+        $category = Category::all()->where('id', $id)->where('user', $user)->first();
+
+        //todo check if items are there then return error.
+        $category->delete();
+        return redirect('/categories');
     }
 }

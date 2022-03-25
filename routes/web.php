@@ -61,7 +61,6 @@ Route::get('/category/update', [CategoryController::class, "updateCategory_get"]
 Route::post('/category/update', [CategoryController::class, "updateCategory_post"]);
 
 //category D
-Route::get('/category/delete', [CategoryController::class, "deleteCategory_get"]);
-Route::delete('/category/delete', [CategoryController::class, "deleteCategory_delete"]);
+Route::post('/category/delete', [CategoryController::class, "deleteCategory_post"]);
 
 
