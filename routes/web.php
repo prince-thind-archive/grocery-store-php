@@ -22,7 +22,7 @@ Route::get('/register', function () {
         return redirect('profile');
     }
 
-    return view('user-form');
+    return view('user-form',["title"=>"New Registeration"]);
 });
 Route::post('/register', [RegisterController::class, "register"]);
 
@@ -31,7 +31,7 @@ Route::get('/login', function () {
     if (session()->has('user')) {
         return redirect('profile');
     }
-    return view('user-form');
+    return view('user-form',["title"=>"Login"]);
 });
 Route::post('/login', [LoginController::class, "login"]);
 

@@ -5,25 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Registration Page</hi>
-<form method="POST">
-    @csrf
-<input type="text" name="username" placeholder="Username" > <br> <br>
-<input type="text" name="password" placeholder="Password" > <br> <br>
-<button type="submit">Submit</button>
+    <h1>{{$title??''}} Form</hi>
+    <a href="/" class="nav-link"> Back to Home</a>
 
-</br>
-<a href="/">home</a>
-
+    <form method="POST">
+        @csrf
+    <input type="text" name="username" placeholder="Username" >
+    <input type="text" name="password" placeholder="Password" >
+    <input type="submit" value="submit">
+</form>
 
 @isset($error)
-    <div style="color:red">
-            {{ $error }}
-  </div>
+    <div class="error">
+        {{ $error }}
+    </div>
 @endisset
-</form>
 
 </body>
 </html>

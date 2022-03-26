@@ -5,27 +5,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Grocery Store</title>
 </head>
 
 <body>
     <header>
-        <h1> Welcome {{session('user')}}</h1>
+        <h1> Welcome {{session('user')}}!</h1>
         <nav>
-            <a href="/">Home</a><a href="/logout">logout</a>
+            <a href="/">Home</a><a href="/logout">Logout</a>
         </nav>
     </header>
-    <div class="body-container">
+    <main>
         <div class="side-bar">
             <ul>
-               <li><a href="/categories">All Categories</a><a href="/items">All Items</a><a href="/about">About</a><a href="/category/create">create new Category</a><a href="/item/create">Create new Item</a></li>
+                  <li> <a href="/categories">All Categories</a> </li>
+                  <li> <a href="/items">All Items</a> </li>
+                  <li> <a href="/about">About</a> </li>
+                  <li> <a href="/category/create">create new Category</a> </li>
+                  <li> <a href="/item/create">Create new Item</a> </li>
             </ul>
         </div>
-        <main class="main">
+        <div class="app">
         @yield('content')
-
-        </main>
-</div>
+        </div>
+    </main>
 </body>
 
 </html>

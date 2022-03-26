@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
 @if (count($categories)>0)
     <div style="color:green">
     Categories:
