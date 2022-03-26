@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 //root
@@ -62,5 +63,9 @@ Route::post('/category/update', [CategoryController::class, "updateCategory_post
 
 //category D
 Route::post('/category/delete', [CategoryController::class, "deleteCategory_post"]);
+
+//items all
+Route::get('/items', [ItemController::class, "getItems"]);
+
 
 

@@ -47,6 +47,7 @@ class CategoryController extends Controller
         if (is_null($category)) {
             return view('error404');
         }
+        //todo add items
         return view('category', ['category' => $category]);
     }
     public function updateCategory_get(Request $req)
