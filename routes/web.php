@@ -68,4 +68,18 @@ Route::post('/category/delete', [CategoryController::class, "deleteCategory_post
 Route::get('/items', [ItemController::class, "getItems"]);
 
 
+//item C
+Route::get('/item/create', [ItemController::class, "createitem_get"]);
+Route::post('/item/create', [ItemController::class, "createitem_post"]);
+
+//item R
+Route::get('/item', [ItemController::class, "getitem"]);
+
+//item U
+Route::get('/item/update', [ItemController::class, "updateitem_get"]);
+Route::post('/item/update', [itemController::class, "updateitem_post"]);
+
+//item D
+Route::post('/item/delete', [itemController::class, "deleteitem_post"]);
+
 
