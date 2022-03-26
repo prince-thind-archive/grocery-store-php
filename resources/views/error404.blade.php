@@ -2,6 +2,6 @@
 
 @section('content')
 
-<h2>Error 404 not found</h2>
+<h2 class="error">Error 404 not found</h2>
 
 @stop

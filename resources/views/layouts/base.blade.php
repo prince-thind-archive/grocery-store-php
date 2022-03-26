@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <title>Grocery Store</title>
 </head>
 
@@ -17,15 +17,13 @@
         </nav>
     </header>
     <main>
-        <div class="side-bar">
-            <ul>
+        <ul class="side-bar">
                   <li> <a href="/categories">All Categories</a> </li>
                   <li> <a href="/items">All Items</a> </li>
                   <li> <a href="/about">About</a> </li>
-                  <li> <a href="/category/create">create new Category</a> </li>
+                  <li> <a href="/category/create">Create new Category</a> </li>
                   <li> <a href="/item/create">Create new Item</a> </li>
-            </ul>
-        </div>
+        </ul>
         <div class="app">
         @yield('content')
         </div>

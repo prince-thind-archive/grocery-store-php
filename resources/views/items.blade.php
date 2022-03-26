@@ -5,23 +5,23 @@
 
 
 @if (count($items)>0)
-    <div style="color:green">
+    <div class="main-component">
     Items:
         <ul>
         @foreach ($items as $item)
             <li>
                 <a href='/item?id={{$item["id"]}}'>{{$item["name"]}}</a>
-                <p>
+                <div>
                 {{ $item["description"] }}
-                </p>
-                <p>
+                </div>
+                <div>
                     category:
                 {{ $item["category"] }}
-                </p>
-                <p>
+                </div>
+                <div>
                     Price:
                 {{ $item["price"] }}
-                </p>
+                </div>
             </li>
         @endforeach
         </ul>

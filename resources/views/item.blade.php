@@ -25,6 +25,6 @@
     <input type="submit" value="Delete">
 </form>
 
-<a href="/item/update?id={{$item->id}}">Update</a>
+<a href="/item/update?id={{$item->id}}" class="button">Update</a>
 
 @stop

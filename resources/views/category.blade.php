@@ -2,38 +2,34 @@
 
 @section('content')
 
-<h3>
+<h2>
     {{$category->name}}
-</h3>
+</h2>
+
 <p>
 {{$category->description}}
-
 </p>
 
 @isset($error)
-<p>
+<div class="error">
     {{$error}}
-</p>
+</div>
 @endisset
 
 @if (count($items)>0)
-    <div style="color:green">
+    <div>
     Items:
         <ul>
         @foreach ($items as $item)
             <li>
                 <a href='/item?id={{$item["id"]}}'>{{$item["name"]}}</a>
-                <p>
+                <div>
                 {{ $item["description"] }}
-                </p>
-                <p>
-                    category:
-                {{ $item["category"] }}
-                </p>
-                <p>
+                </div>
+                <div>
                     Price:
                 {{ $item["price"] }}
-                </p>
+                </div>
             </li>
         @endforeach
         </ul>
@@ -46,6 +42,6 @@
     <input type="submit" value="Delete">
 </form>
 
-<a href="/category/update?id={{$category->id}}">Update</a>
+<a href="/category/update?id={{$category->id}}" class="button">Update</a>
 
 @stop
