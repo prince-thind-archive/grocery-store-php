@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 //root
@@ -43,11 +44,9 @@ Route::get('/logout', function () {
 });
 
 //profile
-Route::get('profile', function () {
-    return view('profile');
-});
+Route::get('profile', [ProfileController::class, "index"]);
 
-//categories 
+//categories
 Route::get('/categories', [CategoryController::class, "getCategories"]);
 
 //category C
@@ -67,7 +66,6 @@ Route::post('/category/delete', [CategoryController::class, "deleteCategory_post
 //items all
 Route::get('/items', [ItemController::class, "getItems"]);
 
-
 //item C
 Route::get('/item/create', [ItemController::class, "createitem_get"]);
 Route::post('/item/create', [ItemController::class, "createitem_post"]);
@@ -81,5 +79,3 @@ Route::post('/item/update', [itemController::class, "updateitem_post"]);
 
 //item D
 Route::post('/item/delete', [itemController::class, "deleteitem_post"]);
-
-
