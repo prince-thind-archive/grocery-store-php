@@ -46,6 +46,11 @@ Route::get('/logout', function () {
 //profile
 Route::get('profile', [ProfileController::class, "index"]);
 
+//about
+Route::get('/about', function () {
+   return view('about');
+});
+
 //categories
 Route::get('/categories', [CategoryController::class, "getCategories"]);
 
