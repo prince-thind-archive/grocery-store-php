@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Item;
+
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -47,8 +49,8 @@ class CategoryController extends Controller
         if (is_null($category)) {
             return view('error404');
         }
-        //todo add items
-        return view('category', ['category' => $category]);
+        $items=Item::all()->where('user', $user)->where('category', $category->name);
+        return view('category', ['category' => $category,'items'=>$items]);
     }
     public function updateCategory_get(Request $req)
     {
@@ -78,7 +80,10 @@ class CategoryController extends Controller
 
         $category = Category::all()->where('id', $id)->where('user', $user)->first();
 
-        //todo check if items are there then return error.
+        $items=Item::all()->where('user', $user)->where('category', $category->name);
+        if(count($items)>0){
+            return view('category', ['category' => $category,'items'=>$items, 'error'=>"Please delete the following items first:"]);
+        }
         $category->delete();
         return redirect('/categories');
     }
