@@ -26,6 +26,8 @@
         @endforeach
         </ul>
     </div>
+@else
+<div class="error">No Items Found</div>
 @endif
 
 

@@ -16,6 +16,8 @@
         @endforeach
         </ul>
     </div>
+@else
+<div class="error">No Categories Found</div>
 @endif
 
 
