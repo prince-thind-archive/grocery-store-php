@@ -3,6 +3,8 @@
 @section('content')
 
 @if(!isset($item))
+
+@if(count($categories)>0)
 <form method="POST">
     @csrf
 <input type="text" name="name" placeholder="Name" > <br> <br>
@@ -17,7 +19,9 @@
 </select>
 <input type="submit" value="Submit" >
 </form>
-
+@else
+<div class="error">Please Add a category First</div>
+@endif
 @else
 <form method="POST">
     @csrf
