@@ -22,7 +22,7 @@
 <form action="/item/delete" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{$item->id}}">
-    <input type="submit" value="Delete">
+    <input type="submit" value="Delete" class="button">
 </form>
 
 <a href="/item/update?id={{$item->id}}" class="button">Update</a>

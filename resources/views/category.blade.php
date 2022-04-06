@@ -39,7 +39,7 @@
 <form action="/category/delete" method="POST">
     @csrf
     <input type="hidden" name="id" value="{{$category->id}}">
-    <input type="submit" value="Delete">
+    <input type="submit" value="Delete" class="button">
 </form>
 
 <a href="/category/update?id={{$category->id}}" class="button">Update</a>

@@ -7,7 +7,7 @@
     Categories:
         <ul>
         @foreach ($categories as $category)
-            <li>
+            <li class="li-item">
                 <a href='/category?id={{$category["id"]}}'>{{$category["name"]}}</a>
                 <p>
                 {{ $category["description"] }}

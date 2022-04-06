@@ -9,7 +9,7 @@
     Items:
         <ul>
         @foreach ($items as $item)
-            <li>
+            <li class="li-item">
                 <a href='/item?id={{$item["id"]}}'>{{$item["name"]}}</a>
                 <div>
                 {{ $item["description"] }}
