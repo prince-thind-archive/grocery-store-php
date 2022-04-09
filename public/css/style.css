@@ -74,6 +74,8 @@ input[type="submit"]:hover {
 
 .error {
     color: red;
+    padding: 3rem;
+    text-align: center;
 }
 
 header {
